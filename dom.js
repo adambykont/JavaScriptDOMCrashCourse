@@ -1,17 +1,15 @@
 let btn = document.querySelector('#button');
 
-let counter = 0;
+function showTarget(event) {
+    console.log(event.target);
+}
 
-function btnCallback() {
-    let title = document.querySelector('#header-title');
-    let msg;
-    if (counter % 2 === 0) {
-        msg = counter;
-    } else {
-        msg = new Date().getHours();
-    }
-    counter++;
-    title.textContent = `Clicked ${msg} times`;
+document.body.addEventListener('click', showTarget);
+
+function btnCallback(e) {
+    console.log(`${e.x} : ${e.y}`);
+    console.log(`${e.clientX} : ${e.clientY}`);
+    // console.log(e.target);
 }
 
 btn.addEventListener('click', btnCallback);
