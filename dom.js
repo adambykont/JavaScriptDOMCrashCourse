@@ -1,15 +1,10 @@
-let btn = document.querySelector('#button');
+let itemInput = document.querySelector('input[type="text"]');
+let form = document.querySelector('form');
 
-function showTarget(event) {
-    console.log(event.target);
+function keycallback(e) {
+    let value = e.target.value;
+    let header = document.querySelector('#main-header');
+    header.textContent = value;
 }
 
-document.body.addEventListener('click', showTarget);
-
-function btnCallback(e) {
-    console.log(`${e.x} : ${e.y}`);
-    console.log(`${e.clientX} : ${e.clientY}`);
-    // console.log(e.target);
-}
-
-btn.addEventListener('click', btnCallback);
+itemInput.addEventListener('keypress', keycallback);
