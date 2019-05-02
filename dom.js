@@ -8,7 +8,6 @@ function addItem(e) {
 
     const li = document.createElement('li');
     li.className = 'list-group-item';
-    console.log(li);
     li.appendChild(document.createTextNode(newItem.value));
     itemList.appendChild(li);
 
@@ -17,6 +16,7 @@ function addItem(e) {
     deleteBtn.appendChild(document.createTextNode('X'));
     deleteBtn.innerText = "X";
     li.appendChild(deleteBtn);
+    newItem.value = '';
 }
 
 form.addEventListener('submit', addItem);
