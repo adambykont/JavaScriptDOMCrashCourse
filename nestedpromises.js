@@ -1,15 +1,28 @@
-function cleanTheRoom(resolve, reject) {
-    const isClean = Math.random() > 0.5;
-    if (isClean) {
-        resolve('Room is clean');
-    } else {
-        reject('Still messy');
-    }
+const cleanRoom = function () {
+    return new Promise(function (resolve, reject) {
+        resolve("Cleaned the room");
+    })
+};
+
+const removeGarbage = function (message) {
+    return new Promise(function (resolve, reject) {
+        resolve(message + '. Garbages has been removed');
+    });
 }
 
-const dailyJob = new Promise(cleanTheRoom);
+const winIcecream = function (message) {
+    return new Promise(function (resolve, reject) {
+        resolve(message + '. Won icecream.');
+    });
+};
 
-dailyJob
-    .then((fromResolve) => console.log("Result: " + fromResolve))
-    .catch(fromReject => console.log("Result: " + fromReject))
-    .finally(() => console.log("That's all for today"));
+cleanRoom()
+    .then(function (result) {
+        return removeGarbage(result);
+    })
+    .then(function (result) {
+        return winIcecream(result);
+    })
+    .then(function (result) {
+        console.log("Finished: " + result);
+    });
